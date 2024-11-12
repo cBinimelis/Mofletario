@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mofletario", "Mofletario\Mofletario.csproj", "{41A0B02B-DBFE-41C7-9D07-5D7B42CEFCF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mofletario", "Mofletario\Mofletario.csproj", "{CAA99B93-C0A4-418A-B539-CCA8167F9467}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{41A0B02B-DBFE-41C7-9D07-5D7B42CEFCF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{41A0B02B-DBFE-41C7-9D07-5D7B42CEFCF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{41A0B02B-DBFE-41C7-9D07-5D7B42CEFCF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{41A0B02B-DBFE-41C7-9D07-5D7B42CEFCF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAA99B93-C0A4-418A-B539-CCA8167F9467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAA99B93-C0A4-418A-B539-CCA8167F9467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAA99B93-C0A4-418A-B539-CCA8167F9467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAA99B93-C0A4-418A-B539-CCA8167F9467}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
