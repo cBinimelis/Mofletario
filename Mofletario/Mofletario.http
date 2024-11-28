@@ -1,6 +1,0 @@
-@Mofletario_HostAddress = http://localhost:5179
-
-GET {{Mofletario_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
