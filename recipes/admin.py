@@ -1,8 +1,14 @@
 from django.contrib import admin
-from .models import *
+from .models import Ingredient, Recipe
 
 
 # Register your models here.
+class IngredientInLine(admin.TabularInline):
+    model = Recipe.ingredients.through
+    extra = 1
+
+
 @admin.register(Recipe)
-class RecipeAdmin(admin.ModelAdmin):
-    list_display = ["id", "title"]
+class BookAdmin(admin.ModelAdmin):
+    list_display = ["title", "yields"]
+    inlines = [IngredientInLine]

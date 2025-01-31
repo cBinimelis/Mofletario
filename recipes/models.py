@@ -28,7 +28,7 @@ class Recipe(models.Model):
     ready_in = models.IntegerField()
     yields = models.IntegerField()
     calories_ps = models.IntegerField(null=True)
-    image = models.ImageField(null=True, upload_to='recipes')
+    image = models.ImageField(null=True, upload_to="recipes")
     ingredients = models.ManyToManyField("Ingredient", through="RecipeIngredient")
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     recipe_step = models.ForeignKey(RecipeStep, on_delete=models.CASCADE)
