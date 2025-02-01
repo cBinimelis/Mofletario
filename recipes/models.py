@@ -14,10 +14,17 @@ class Measurement(models.Model):
     name = models.CharField(max_length=30)
     abbreviation = models.CharField(max_length=10)
 
+    def __str__(self):
+        return self.abbreviation
+
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=50)
+    amount = models.IntegerField()
     measurement = models.ForeignKey(Measurement, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 class Recipe(models.Model):
@@ -29,15 +36,9 @@ class Recipe(models.Model):
     yields = models.IntegerField()
     calories_ps = models.IntegerField(null=True)
     image = models.ImageField(null=True, upload_to="recipes")
-    ingredients = models.ManyToManyField("Ingredient", through="RecipeIngredient")
+    ingredients = models.ManyToManyField(Ingredient)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    recipe_step = models.ForeignKey(RecipeStep, on_delete=models.CASCADE)
-
-
-class RecipeIngredient(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    amount = models.IntegerField()
+    recipe_step = models.ForeignKey(RecipeStep, on_delete=models.CASCADE, null=True)
 
 
 class Menu(models.Model):

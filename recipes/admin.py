@@ -1,14 +1,24 @@
 from django.contrib import admin
-from .models import Ingredient, Recipe
+from .models import Ingredient, Recipe, Measurement
 
 
 # Register your models here.
-class IngredientInLine(admin.TabularInline):
-    model = Recipe.ingredients.through
-    extra = 1
+# class IngredientInLine(admin.TabularInline):
+#     model = Recipe.ingredients.through
+#     extra = 1
 
 
 @admin.register(Recipe)
-class BookAdmin(admin.ModelAdmin):
+class RecipeAdmin(admin.ModelAdmin):
     list_display = ["title", "yields"]
-    inlines = [IngredientInLine]
+    # inlines = [IngredientInLine]
+
+
+@admin.register(Ingredient)
+class IngredientAdmin(admin.ModelAdmin):
+    list_display = ["name"]
+
+
+@admin.register(Measurement)
+class MeasurementAdmin(admin.ModelAdmin):
+    list_display = ["name"]
