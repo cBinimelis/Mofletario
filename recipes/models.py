@@ -25,9 +25,15 @@ class Measurement(models.Model):
     def __str__(self):
         return self.abbreviation
 
+    def __str__(self):
+        return self.abbreviation
+
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=250)
+
+    def __str__(self):
+        return f"{self.name}"
 
     def __str__(self):
         return f"{self.name}"
