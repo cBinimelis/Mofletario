@@ -1,0 +1,40 @@
+{% extends 'general/base.html' %}
+<!--TITULO-->
+{% block title %}Detalles {{alumno}}{% endblock %}
+<!--CONTENIDO-->
+{%block content%}
+
+<h1>{{alumno}}</h1>
+<table class="table">
+  <tr>
+    <td>ID</td>
+    <td>{{alumno.id}}</td>
+  </tr>
+  <tr>
+    <td>Nombre</td>
+    <td>{{alumno.nombre}}</td>
+  </tr>
+  <tr>
+    <td>Apellido</td>
+    <td>{{alumno.apellido}}</td>
+  </tr>
+  <tr>
+    <td>Correo</td>
+    <td>{{alumno.correo}}</td>
+  </tr>
+  <tr>
+    <td>Tipo Licencia</td>
+    <td>{{alumno.get_tipo_licencia_display}}</td>
+  </tr>
+</table>
+<a href="{% url 'clases:alumno_list' %}" class="btn btn-dark"
+  ><i class="fa-solid fa-reply"></i> Volver a alumnos</a
+>
+<a href="{% url 'clases:alumno_edit' alumno.id %}" class="btn btn-dark"
+  ><i class="fa-solid fa-pen"></i> Editar</a
+>
+<a href="{% url 'clases:alumno_delete' alumno.id %}" class="btn btn-danger"
+  ><i class="fa-solid fa-trash"></i> Eliminar</a
+>
+
+{%endblock%}

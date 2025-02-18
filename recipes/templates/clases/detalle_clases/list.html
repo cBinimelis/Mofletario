@@ -1,0 +1,71 @@
+{% extends 'general/base.html' %}
+<!--TITULO-->
+{% block title %}Listado de Clases{% endblock %}
+<!--CONTENIDO-->
+{%block content%}
+
+<!-- MENSAJES -->
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} text-center">{{ message }}</div>
+  {% endfor %}
+</ul>
+{% endif %}
+
+
+
+<h1 class="mb-5">Listado de Clases </h1>
+{% if user.is_staff %}
+<a class="btn btn-primary" href="{% url 'clases:detalle_clase_create' %}"
+  ><i class="fa-solid fa-plus"> </i> Crear Clase</a
+>
+{% endif %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Alumno</th>
+      <th>Correo</th>
+      <th>Licencia</th>
+      <th>Vehículo</th>
+      <th>Instructor</th>
+      <th>Practica</th>
+      <th>Estado</th>
+      {% if user.is_staff %}
+      <th class="col-1">Actions</th>
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for element in detalle_clases %}
+    <tr>
+      <td class="align-middle fw-bold"><a href="{% url 'clases:detalle_clase_view' element.id %}" class="btn btn-danger"
+        ><i class="fa-solid fa-eye"></i
+      ></a>
+      </td>
+      
+      <td class="align-middle">{{element.alumno}}</td>
+      <td class="align-middle">{{element.alumno.correo}}</td>
+      <td class="align-middle">{{element.alumno.get_tipo_licencia_display}}</td>
+      <td class="align-middle">{{element.vehiculo|default_if_none:""}}</td>
+      <td class="align-middle">{{element.instructor|default_if_none:""}}</td>
+      <td class="align-middle">{{element.clase}}</td>
+      <td class="align-middle">{{element.get_estado_display}}</td>
+      {% if user.is_staff %}
+      <td class="col-1">
+        <a href="{% url 'clases:detalle_clase_edit' element.id %}" class="btn btn-danger"
+          ><i class="fa-solid fa-pen"></i
+        ></a>
+        <a href="{% url 'clases:detalle_clase_delete' element.id %}" class="btn btn-danger"
+          ><i class="fa-solid fa-trash"></i
+        ></a>
+      </td>
+      {% endif %}
+    </tr>
+        {% endfor %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+{%endblock%}

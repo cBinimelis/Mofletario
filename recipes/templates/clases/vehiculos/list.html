@@ -1,0 +1,59 @@
+{% extends 'general/base.html' %}
+<!--TITULO-->
+{% block title %}Listado de Vehículo{% endblock %}
+<!--CONTENIDO-->
+{%block content%}
+
+<!-- MENSAJES -->
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} text-center">{{ message }}</div>
+  {% endfor %}
+</ul>
+{% endif %}
+
+
+<h1>Vehículo</h1>
+<a class="btn btn-primary mt-5" href="{% url 'clases:vehiculo_create' %}"
+  ><i class="fa-solid fa-plus"> </i> Crear Vehículo</a
+>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Modelo</th>
+      <th>Patente</th>
+      <th>Transmisión</th>
+      <th>Estado</th>
+      <th class="col-1">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for element in vehiculos %}
+    <tr>
+      <td class="align-middle fw-bold">
+        <a style="text-decoration: none; color: black" href="{% url 'clases:vehiculo_view' element.id %}"
+          >{{element.id}}</a
+        >
+      </td>
+      
+      <td class="align-middle">{{element.modelo}}</td>
+      <td class="align-middle">{{element.patente}}</td>
+      <td class="align-middle">{{element.get_transmision_display}}</td>
+      <td class="align-middle">{{element.get_estado_display}}</td>
+      <td class="col-1">
+        <a href="{% url 'clases:vehiculo_edit' element.id %}" class="btn btn-danger"
+          ><i class="fa-solid fa-pen"></i
+        ></a>
+        <a href="{% url 'clases:vehiculo_delete' element.id %}" class="btn btn-danger"
+          ><i class="fa-solid fa-trash"></i
+        ></a>
+      </td>
+    </tr>
+        {% endfor %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+{%endblock%}

@@ -1,0 +1,35 @@
+{% extends 'general/base.html' %}
+<!--TITULO-->
+{% block title %}Detalles {{clase}}{% endblock %}
+<!--CONTENIDO-->
+{%block content%}
+
+<h1>{{clase}}</h1>
+<table class="table">
+  <tr>
+    <td>ID</td>
+    <td>{{clase.id}}</td>
+  </tr>
+  <tr>
+    <td>Nombre</td>
+    <td>{{clase.nombre}}</td>
+  </tr>
+  <tr>
+    <td>Tipo Clase</td>
+    <td>{{clase.get_tipo_display}}</td>
+  </tr>
+    <td>Descripción de la Clase</td>
+    <td>{{clase.descripcion}}</td>
+  </tr>
+</table>
+<a href="{% url 'clases:clase_list' %}" class="btn btn-dark"
+  ><i class="fa-solid fa-reply"></i> Volver a clases</a
+>
+<a href="{% url 'clases:clase_edit' clase.id %}" class="btn btn-dark"
+  ><i class="fa-solid fa-pen"></i> Editar</a
+>
+<a href="{% url 'clases:clase_delete' clase.id %}" class="btn btn-danger"
+  ><i class="fa-solid fa-trash"></i> Eliminar</a
+>
+
+{%endblock%}

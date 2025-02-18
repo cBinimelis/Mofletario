@@ -1,0 +1,33 @@
+{% extends 'general/base.html'%}
+
+<!-- TITULO -->
+{% block title %}Privado - DriveSafe{% endblock %}
+
+<!-- CONTENIDO -->
+{% block content%}
+
+<h1>DriveSafe</h1>
+<h3>Bienvenido(a) {{user}}</h3>
+<p>
+  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, enim? Libero,
+  cupiditate praesentium tempora fugiat est quod, numquam corporis architecto
+  velit quaerat voluptate corrupti voluptatibus saepe non impedit, placeat
+  dolorem.
+</p>
+<table class="table">
+  <thead>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    {% for elemento in data %}
+    <tr>
+      <td>{{elemento.id}}</td>
+      <td>{{elemento.nombre}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
