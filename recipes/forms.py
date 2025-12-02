@@ -1,15 +1,14 @@
 from django import forms
 from .models import (
-    Recipe,
-    Ingredient,
-    Measurement,
-    Category,
-    RecipeIngredient,
-    Menu,
+    RecipeModel,
 )
 
 
 class RecipeForm(forms.ModelForm):
     class Meta:
-        model = Recipe
-        fields = ["title"]
+        model = RecipeModel
+        fields = [
+            "name",
+        ]
+
+#    CHOICES =[('desayuno','Desayuno')('almuerzo','Almuerzo'),('cena','Cena'),('aperitivo','Aperitivo'),('postre','Postre')]

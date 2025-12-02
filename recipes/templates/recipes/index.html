@@ -7,7 +7,6 @@
 {% block content%}
 
 <h1>DriveSafe</h1>
-<h3>Bienvenido(a) {{user}}</h3>
 <p>
   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, enim? Libero,
   cupiditate praesentium tempora fugiat est quod, numquam corporis architecto
@@ -22,10 +21,10 @@
     <th></th>
   </thead>
   <tbody>
-    {% for elemento in data %}
+    {% for recipe in recipes %}
     <tr>
-      <td>{{elemento.id}}</td>
-      <td>{{elemento.nombre}}</td>
+      <td>{{recipe.id}}</td>
+      <td>{{recipe.name}}</td>
     </tr>
     {% endfor %}
   </tbody>

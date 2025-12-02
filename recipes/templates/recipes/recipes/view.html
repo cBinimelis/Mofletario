@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+<!--TITULO-->
+{% block title %}Detalles {{recipe}}{% endblock %}
+<!--CONTENIDO-->
+{%block content%}
+<div class="m-3">
+  <h1>{{recipe}}</h1>
+  <div class="row">
+  <div class="col-6">
+  <table class="table">
+    <tr>
+      <td>Porciones</td>
+      <td>{{recipe.servings}}</td>
+    </tr>
+    <tr>
+      <td>Descripción</td>
+      <td>{{recipe.description}}</td>
+    </tr>
+    <tr>
+    <tr>
+      <td>Tiempo de Preparación</td>
+      <td>{{recipe.prep_time}} min.</td>
+    </tr>
+    <tr>
+      <td>Tiempo de Cocción</td>
+      <td>{{recipe.cook_time}} min.</td>
+    </tr>
+      <td>Categoría</td>
+      <td>{{recipe.type}}</td>
+    </tr>
+  </table>
+  </div>
+  <div class="col-6">
+    <h4>Ingredientes  </h4>
+    <ul>
+    {%for element in ingredients%}
+    <li>{{element}}</li>
+    {%endfor%}
+    </ul>
+  </div>
+    
+<div class="mb-3 py-5">
+  <h3 >Instrucciones</h3>
+  <div>
+    {{recipe.instructions|linebreaks }}</div>
+</div>
+  </div>
+<a href="{% url 'recipes:list' %}" class="btn btn-dark"
+  ><i class="fa-solid fa-reply"></i> Volver a recetas</a
+>
+<a href="{% url 'recipes:edit' recipe.id %}" class="btn btn-dark"
+  ><i class="fa-solid fa-pen"></i> Editar</a
+>
+<a href="{% url 'recipes:delete' recipe.id %}" class="btn btn-danger"
+  ><i class="fa-solid fa-trash"></i> Eliminar</a
+>
+
+</div>
+{%endblock%}

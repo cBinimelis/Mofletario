@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+<!--TITULO-->
+{% block title %}Listado de Recetas{% endblock %}
+<!--CONTENIDO-->
+{%block content%}
+
+<!-- MENSAJES -->
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} text-center">{{ message }}</div>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<div class="container">
+<h1 class="fw-bold text-center title">Recetas  <i class="fa-solid fa-carrot "></i></h1>
+
+<div class="row mb-3">
+  <div class=" col-10">
+    <input type="text" name="searchRecipe" id="searchRecipe" class="form-control" placeholder="Ingresa tu búsqueda...">
+  </div>
+  <div class="col-2">
+    <button type="button" class="btn btn-recipe w-100">Buscar Comida</button>
+  </div>
+</div>
+<!--
+<a class="btn btn-primary m-1" href="{% url 'recipes:create' %}"
+  ><i class="fa-solid fa-plus "> </i> Crear Receta</a>
+-->
+<!--
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Porciones</th>
+      <th>Preparación</th>
+      <th class="col-2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for element in recipes %}
+    <tr>
+      <td class="align-middle fw-bold">
+        <a style="text-decoration: none; color: black" href="{% url 'recipes:view' element.id %}"
+          >{{element.id}}</a
+        >
+      </td>
+      
+      <td class="align-middle">{{element.name}}</td>
+      <td class="align-middle">{{element.servings}}</td>
+      <td class="align-middle">{{element.prep_time}}</td>
+      <td class="col-2">
+        <a href="#" class="btn btn-danger"
+          ><i class="fa-solid fa-pen"></i
+        ></a>
+        <a href="#" class="btn btn-danger"
+          ><i class="fa-solid fa-trash"></i
+        ></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+-->
+<div class="row row-cols-4 g-1">
+  
+  {% for element in recipes %}
+  <div class="col p-2">
+  <a class="card border-0 text-center shadow text-decoration-none" href="{% url 'recipes:view' element.id %}">
+    <div class="icon">
+      {% if element.type|cut:" " == "PanesyMasas" %}
+        <i class="fa-solid fa-bread-slice pt-3" ></i>
+      {% endif %}
+      {% if element.type|cut:" " == "Desayuno" %}
+        <i class="fa-solid fa-mug-hot pt-3" ></i>
+      {% endif %}
+      {% if element.type|cut:" " == "Postre" %}
+        <i class="fa-solid fa-ice-cream pt-3" ></i>
+      {% endif %}
+      {% if element.type|cut:" " == "Almuerzo" %}
+      <i class="fa-solid fa-drumstick-bite pt-3"></i>
+      {% endif %}
+    </div>
+    <div class="card-body">
+    <h5 class="card-title fw-bold">{{element.name}}</h5>
+    </div>
+  </a>
+  </div>
+  {% endfor %}
+</div>
+</div>
+</div>
+</div>
+{%endblock%}

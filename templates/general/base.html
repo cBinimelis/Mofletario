@@ -35,58 +35,40 @@
               id="menu"
             >
               <li class="nav-item">
-                <a
-                  href="{% url 'clases:home' %}"
-                  class="nav-link align-middle px-0 text-white"
-                >
+                <a href="#" class="nav-link align-middle px-0 text-white">
                   <i class="fs-5 fa-solid fa-house"></i>
                   <span class="ms-1 d-none d-sm-inline">Inicio</span>
                 </a>
               </li>
               {%if user.is_superuser%}
               <li class="nav-item">
-                <a
-                  href="{% url 'clases:alumno_list' %}"
-                  class="nav-link align-middle px-0 text-white"
-                >
+                <a href="#" class="nav-link align-middle px-0 text-white">
                   <i class="fs-5 fa-solid fa-user"></i>
                   <span class="ms-1 d-none d-sm-inline">Alumnos</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a
-                  href="{% url 'clases:instructor_list' %}"
-                  class="nav-link align-middle px-0 text-white"
-                >
+                <a href="#" class="nav-link align-middle px-0 text-white">
                   <i class="fs-5 fa-solid fa-chalkboard-teacher"></i>
                   <span class="ms-1 d-none d-sm-inline">Instructores</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a
-                  href="{% url 'clases:vehiculo_list' %}"
-                  class="nav-link align-middle px-0 text-white"
-                >
+                <a href="#" class="nav-link align-middle px-0 text-white">
                   <i class="fs-5 fa-solid fa-car"></i>
                   <span class="ms-1 d-none d-sm-inline">Vehículos</span>
                 </a>
               </li>
               {% endif %}
               <li class="nav-item">
-                <a
-                  href="{% url 'clases:detalle_clase_list' %}"
-                  class="nav-link align-middle px-0 text-white"
-                >
+                <a href="#" class="nav-link align-middle px-0 text-white">
                   <i class="fs-5 fa-solid fa-school"></i>
                   <span class="ms-1 d-none d-sm-inline">Clases</span>
                 </a>
               </li>
               <hr />
               <li class="nav-item">
-                <a
-                  href="{% url 'logout' %}"
-                  class="nav-link align-middle px-0 text-white"
-                >
+                <a href="#" class="nav-link align-middle px-0 text-white">
                   <i class="fs-5 fa-solid fa-circle-xmark"></i>
                   <span class="ms-1 d-none d-sm-inline">Cerrar Sesión</span>
                 </a>
