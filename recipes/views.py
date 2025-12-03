@@ -2,17 +2,19 @@ from django.shortcuts import render
 from .models import RecipeModel, RecipeIngredient
 from recipes.forms import RecipeForm
 
-
 # Create your views here.
 def home(request):
     return render(request, "index.html")
 
 
 def list(request):
-    recipes = RecipeModel.objects.all()
-    for element in recipes:
-        print(element.type)
-    context = {"recipes": recipes}
+    if request.method == "GET":
+        recipes = RecipeModel.objects.all()
+        context = {"recipes": recipes}
+    if request.method =='POST':
+        value = request.POST.__getitem__("searchRecipe")
+        recipes= RecipeModel.objects.filter(name__icontains=value)
+        context = {"recipes": recipes}
     return render(request, "recipes/recipes/list.html", context)
 
 

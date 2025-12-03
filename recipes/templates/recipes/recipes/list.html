@@ -17,11 +17,11 @@
 <h1 class="fw-bold text-center title">Recetas  <i class="fa-solid fa-carrot "></i></h1>
 
 <div class="row mb-3">
-  <div class=" col-10">
+  <div class="col-12">
+  <form action="" method="post">
+    {% csrf_token %}
     <input type="text" name="searchRecipe" id="searchRecipe" class="form-control" placeholder="Ingresa tu búsqueda...">
-  </div>
-  <div class="col-2">
-    <button type="button" class="btn btn-recipe w-100">Buscar Comida</button>
+  </form>
   </div>
 </div>
 <!--
