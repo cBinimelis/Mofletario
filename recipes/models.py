@@ -1,12 +1,11 @@
-from pyexpat import model
-from tkinter import CASCADE
 from django.db import models
 
 
 class UnitModel(models.Model):
     name = models.CharField(max_length=50, unique=True)
     class Meta:
-        verbose_name = "Unidades de Medida"
+        verbose_name = "Unidad de Medida"
+        verbose_name_plural = "Unidades de Medida"
 
     def __str__(self):
         return self.name
@@ -17,6 +16,7 @@ class IngredientModel(models.Model):
 
     class Meta:
         verbose_name = "Ingrediente"
+        verbose_name_plural = "Ingredientes"
         
     def __str__(self):
         return self.name
@@ -37,6 +37,7 @@ class RecipeModel(models.Model):
     
     class Meta:
         verbose_name = "Receta"
+        verbose_name_plural = "Recetas"
 
     def __str__(self):
         return self.name
