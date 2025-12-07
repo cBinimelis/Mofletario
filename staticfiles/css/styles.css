@@ -1,0 +1,27 @@
+.card .icon {
+  font-size: 3rem;
+  color: #2f5b71;
+}
+.title {
+  font-size: 6rem;
+  color: #2f5b71;
+}
+.card .card-text {
+  color: gray;
+}
+.card:hover {
+  background-color: #2f5b71;
+  color: white;
+}
+.card:hover .icon,
+.card:hover .card-text {
+  color: white;
+}
+.card {
+  transition: all 0.3s;
+}
+
+.btn-recipe {
+  background-color: #2f5b71;
+  color: white;
+}
